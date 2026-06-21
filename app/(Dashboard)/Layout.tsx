@@ -33,7 +33,7 @@ export default function DashboardLayout({
             <main className={`flex-1 min-h-screen transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isSidebarOpen ? 'pl-64' : 'pl-0'
                 }`}>
                 {/* कार्ड कंटेनर - लाईट मोडमध्ये पांढरा आणि डार्क मोडमध्ये डार्क राहील */}
-                <div className="p-8 max-w-[1400px] mx-auto min-h-screen bg-white dark:bg-[#0d0d0f] border-l border-gray-100 dark:border-[#1a1a1c] transition-colors duration-500 ease-in-out">
+                <div className="p-8 max-w-350 mx-auto min-h-screen bg-white dark:bg-[#0d0d0f] border-l border-gray-100 dark:border-[#1a1a1c] transition-colors duration-500 ease-in-out">
 
                     {/* TOP BAR */}
                     <div className="flex justify-between items-center mb-8">
