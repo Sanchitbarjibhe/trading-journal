@@ -15,11 +15,11 @@ export default function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <aside className="w-full bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#1c1c1e] rounded-lg px-3 py-2.5 text-[13px] font-medium text-gray-900 dark:text-gray-200 focus:outline-none focus:border-black dark:focus:border-[#3f3f46] transition-colors">
+        <aside className="w-full bg-app-card border border-app-border rounded-lg px-3 py-2.5 text-[13px] font-medium text-app-text transition-colors duration-300">
             <div>
                 {/* Top Minimal Logo Container */}
-                <div className="h-9 w-9 bg-[#1c1c1e] rounded-lg mb-10 flex items-center justify-center border border-[#26262a]">
-                    <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+                <div className="h-9 w-9 bg-app-text rounded-lg mb-10 flex items-center justify-center border border-app-border">
+                    <div className="w-3 h-3 bg-app-bg rounded-sm"></div>
                 </div>
 
                 {/* Navigation Menu */}
@@ -32,11 +32,11 @@ export default function Sidebar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] tracking-wide transition-all duration-150 ${isActive
-                                    ? 'bg-[#161618] text-white border border-[#26262a] font-normal shadow-sm'
-                                    : 'hover:bg-[#0f0f11] hover:text-gray-200 border border-transparent'
+                                    ? 'bg-app-text text-app-bg font-normal shadow-sm'
+                                    : 'hover:bg-app-bg hover:text-app-text border border-transparent'
                                     }`}
                             >
-                                <Icon size={16} className={isActive ? 'text-white' : 'text-gray-500'} />
+                                <Icon size={16} className={isActive ? 'text-app-bg' : 'text-app-muted'} />
                                 <span>{item.name}</span>
                             </Link>
                         );
@@ -45,7 +45,7 @@ export default function Sidebar() {
             </div>
 
             {/* Sidebar Footer */}
-            <div className="pt-4 text-[9px] tracking-[0.2em] text-gray-600 font-mono uppercase opacity-60">
+            <div className="pt-4 text-[9px] tracking-[0.2em] text-app-muted font-mono uppercase opacity-60">
                 System Active
             </div>
         </aside>
