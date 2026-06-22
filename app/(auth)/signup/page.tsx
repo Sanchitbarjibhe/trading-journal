@@ -20,47 +20,85 @@ export default function SignupPage() {
     return (
         <div className="min-h-screen bg-app-bg text-app-text flex font-sans selection:bg-app-card/50">
             {/* --- 🌗 LEFT SPLIT: BRANDING & TRADER'S PSYCHOLOGY --- */}
-            <div className="hidden lg:flex lg:w-[55%] xl:w-[60%] bg-[#0f111a] relative flex-col justify-between p-16 overflow-hidden border-r border-app-border/10">
+            {/* --- 🌗 LEFT SPLIT: PREMIUM BRANDING & TRADER'S PSYCHOLOGY --- */}
+            <div className="hidden lg:flex lg:w-[55%] xl:w-[60%] bg-[#090b11] relative flex-col justify-between p-16 overflow-hidden border-r border-app-border/10">
 
-                {/* Tradox Branding Logo - Fixed visibility by adding explicit white text */}
+                {/* Ambient Background Glow Effect for high-end aesthetic feel */}
+                <div className="absolute top-[-20%] left-[-10%] w-150 h-150 bg-linear-to-br from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-emerald-500/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
+
+                {/* Tradox Branding Logo */}
                 <div className="flex items-center gap-3 z-10 select-none">
-                    <div className="w-9 h-9 bg-white text-[#0f111a] flex items-center justify-center rounded-lg font-black text-xl tracking-tighter shadow-md">
+                    <div className="w-9 h-9 bg-white text-[#090b11] flex items-center justify-center rounded-lg font-black text-xl tracking-tighter shadow-[0_4px_20px_rgba(255,255,255,0.15)]">
                         T
                     </div>
-                    <span className="text-xl font-bold tracking-widest text-white uppercase">
+                    <span className="text-xl font-bold tracking-widest text-transparent uppercase bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text">
                         Tradox
                     </span>
                 </div>
 
-                {/* Typography Section - Enhanced size and line spacing */}
-                <div className="my-auto max-w-xl z-10 space-y-6 pt-12">
-                    <h1 className="text-4xl xl:text-5xl font-bold tracking-tight text-white leading-[1.3]">
+                {/* Main Psychological Typography Typography */}
+                <div className="my-auto max-w-xl z-10 space-y-8 pt-12">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs font-medium tracking-wide text-slate-300">Proprietary Psychology Logging Engine</span>
+                    </div>
+
+                    <h1 className="text-4xl xl:text-5xl font-black tracking-tight text-white leading-[1.35]">
                         Emotions build losses. <br />
-                        <span className="text-app-muted/80 font-medium">Rules build compounding.</span> <br />
-                        <span className="bg-linear-to-r from-white via-slate-200 to-app-muted bg-clip-text text-transparent">
+                        <span className="text-slate-500 font-medium">Rules build compounding.</span> <br />
+                        <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             Master your execution with Tradox.
                         </span>
                     </h1>
+
+                    <p className="text-sm text-slate-400 leading-relaxed max-w-md">
+                        Eliminate cognitive bias, audit execution inconsistencies, and systematically protect your capital with our premium trading analytics infrastructure.
+                    </p>
                 </div>
 
-                {/* Trade Journal Dashboard Preview - Refactored positioning to prevent rough clipping */}
-                <div className="relative w-full h-70 bg-app-card/20 rounded-xl border border-app-border/10 p-6 shadow-2xl backdrop-blur-md opacity-30 select-none pointer-events-none transition-all duration-300">
-                    <div className="flex items-center justify-between border-b border-app-border/5 pb-4 mb-4">
-                        <div className="h-3 w-24 bg-app-muted/30 rounded" />
-                        <div className="h-6 w-16 bg-app-muted/20 rounded-full" />
-                    </div>
-                    <div className="space-y-4">
-                        <div className="h-25 bg-linear-to-t from-app-bg/5 to-app-muted/5 rounded-lg border border-app-border/5 flex items-end p-4">
-                            <div className="w-full h-12 border-b border-app-muted/10 flex items-end gap-1.5">
-                                {[40, 60, 45, 75, 90, 65, 85, 100, 110, 70, 95].map((h, i) => (
-                                    <div key={i} className="flex-1 bg-app-muted/20 rounded-t-sm" style={{ height: `${h}%` }} />
-                                ))}
+                {/* Premium Miniature Terminal & Metric Dashboard Preview */}
+                <div className="relative w-full bg-slate-950/40 rounded-xl border border-white/5 p-6 shadow-2xl backdrop-blur-md select-none pointer-events-none group transition-all duration-300 hover:border-white/10">
+                    <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
+                        <div className="flex items-center gap-4">
+                            <div className="flex gap-1.5">
+                                <div className="w-2.5 h-2.5 rounded-full bg-rose-500/60" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
+                            </div>
+                            <div className="h-3 w-32 bg-white/10 rounded font-mono text-[10px] text-slate-500 flex items-center pl-2">
+                                execution_metrics.sh
                             </div>
                         </div>
-                        <div className="grid grid-cols-3 gap-3">
-                            <div className="h-12 bg-app-muted/10 rounded-lg border border-app-border/5" />
-                            <div className="h-12 bg-app-muted/10 rounded-lg border border-app-border/5" />
-                            <div className="h-12 bg-app-muted/10 rounded-lg border border-app-border/5" />
+                        <div className="h-5 px-2 bg-emerald-500/10 text-emerald-400 text-[10px] font-mono font-bold rounded flex items-center border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                            +24.8% Edge Optimized
+                        </div>
+                    </div>
+
+                    {/* Metric Grid Mockup */}
+                    <div className="grid grid-cols-3 gap-4 mb-4">
+                        {[
+                            { label: "Win Rate", val: "68.4%", color: "text-emerald-400" },
+                            { label: "Profit Factor", val: "2.41", color: "text-indigo-400" },
+                            { label: "Avg R:R Ratio", val: "1:3.2", color: "text-white" }
+                        ].map((m, idx) => (
+                            <div key={idx} className="bg-white/2 border border-white/5 rounded-lg p-3">
+                                <span className="block text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-1">{m.label}</span>
+                                <span className={`text-base font-bold font-mono ${m.color}`}>{m.val}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Micro Chart Waves */}
+                    <div className="h-17.5 bg-white/1 rounded-lg border border-white/5 flex items-end p-2 relative overflow-hidden">
+                        <div className="w-full h-8 border-b border-white/5 flex items-end gap-1.5 z-10">
+                            {[25, 45, 35, 65, 55, 80, 70, 95, 110, 85, 120, 105, 130].map((h, i) => (
+                                <div
+                                    key={i}
+                                    className="flex-1 bg-linear-to-t from-indigo-500/20 to-indigo-400/40 rounded-t-sm transition-all duration-500 group-hover:from-indigo-500/30"
+                                    style={{ height: `${h}%` }}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
