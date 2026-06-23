@@ -23,11 +23,11 @@ export default function DashboardLayout({
     return (
         <div className="flex bg-white dark:bg-[#0a0a0a] min-h-screen text-gray-900 dark:text-white w-full overflow-x-hidden transition-colors duration-500 ease-in-out">
 
-            {/* डाव्या बाजूचा Sidebar (Smooth Animation) */}
+            {/* डाव्या बाजूचा Sidebar (Smooth Animation)
             <div className={`fixed h-full z-20 top-0 bottom-0 left-0 w-64 bg-gray-50 dark:bg-[#0a0a0a] border-r border-gray-100 dark:border-transparent transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}>
                 <Sidebar />
-            </div>
+            </div> */}
 
             {/* उजव्या बाजूचा मुख्य एरिया */}
             <main className={`flex-1 min-h-screen transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isSidebarOpen ? 'pl-64' : 'pl-0'

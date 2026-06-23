@@ -1,33 +1,30 @@
 // app/layout.tsx
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { StoreProvider } from "@/store/StoreProvider"; // 👈 Imported Redux Provider
+import { StoreProvider } from "@/store/StoreProvider";
+import { LayoutWrapper } from "@/components/LayoutWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Tradox",
-  description: "Track your trades and psychology",
+export const metadata = {
+  title: "Tradox - Premium Trading Journal",
+  description: "Audit execution and master trading psychology",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
+    // 1. Enforce suppressHydrationWarning here at html level
     <html lang="en" suppressHydrationWarning>
-      {/* Added suppressHydrationWarning here to handle theme injection scripts flawlessly */}
-      <body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
-        {/* Wrap everything inside StoreProvider so that all client components get access to Redux context */}
+      {/* 2. Enforce suppressHydrationWarning at body level as well */}
+      <body className="antialiased font-sans bg-white dark:bg-[#090b11]" suppressHydrationWarning>
         <StoreProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-            {children}
+
+            {/* The global layout app wrapper architecture */}
+            <LayoutWrapper>{children}</LayoutWrapper>
+
           </ThemeProvider>
         </StoreProvider>
       </body>

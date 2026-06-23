@@ -10,13 +10,14 @@ export function ThemeProvider({
 }: React.ComponentProps<typeof NextThemesProvider>) {
     const [mounted, setMounted] = React.useState(false);
 
-    // Ensuring the component is fully mounted on the client to avoid server-side script tag injection anomalies
+    // Directly handle rendering strictly after hydration completes on the client side
     React.useEffect(() => {
         setMounted(true);
     }, []);
 
+    // During SSR pre-render, bypass NextThemesProvider execution entirely to prevent script tag injection conflicts
     if (!mounted) {
-        return <div className="opacity-0 bg-app-bg min-h-screen">{children}</div>;
+        return <>{children}</>;
     }
 
     return <NextThemesProvider {...props}>{children}</NextThemesProvider>;

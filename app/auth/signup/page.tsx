@@ -19,7 +19,6 @@ export default function SignupPage() {
 
     return (
         <div className="min-h-screen bg-app-bg text-app-text flex font-sans selection:bg-app-card/50">
-            {/* --- 🌗 LEFT SPLIT: BRANDING & TRADER'S PSYCHOLOGY --- */}
             {/* --- 🌗 LEFT SPLIT: PREMIUM BRANDING & TRADER'S PSYCHOLOGY --- */}
             <div className="hidden lg:flex lg:w-[55%] xl:w-[60%] bg-[#090b11] relative flex-col justify-between p-16 overflow-hidden border-r border-app-border/10">
 

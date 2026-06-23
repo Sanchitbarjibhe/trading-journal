@@ -10,32 +10,32 @@ const NAV_ITEMS = [
     {
         category: "Core Journaling",
         items: [
-            { name: "Dashboard Grid", href: "/dashboard", icon: "📊" },
-            { name: "Trade Cards", href: "/dashboard/trades", icon: "🃏" },
-            { name: "Calendar Matrix", href: "/dashboard/calendar", icon: "📅" },
+            { name: "Dashboard", href: "/dashboard", icon: "📊" },
+            { name: "Journal", href: "/Journal", icon: "🃏" },
+            // { name: "Calendar Matrix", href: "/dashboard/calendar", icon: "📅" },
         ],
     },
-    {
-        category: "Social Ecosystem (Premium)",
-        items: [
-            { name: "Accuracy Matrix", href: "/social/accuracy", icon: "⚡" },
-            { name: "Traders Community", href: "/social/community", icon: "🤝" },
-            { name: "Mentor Connect", href: "/social/mentors", icon: "👑" },
-        ],
-    },
-    {
-        category: "Cognitive AI Engine",
-        items: [
-            { name: "Edge Diagnostics", href: "/ai/diagnostics", icon: "🤖" },
-            { name: "Behavioral Audit", href: "/ai/behavior", icon: "🧠" },
-        ],
-    },
-    {
-        category: "Management",
-        items: [
-            { name: "Settings & API", href: "/settings", icon: "⚙️" },
-        ],
-    },
+    // {
+    //     category: "Social Ecosystem (Premium)",
+    //     items: [
+    //         { name: "Accuracy Matrix", href: "/social/accuracy", icon: "⚡" },
+    //         { name: "Traders Community", href: "/social/community", icon: "🤝" },
+    //         { name: "Mentor Connect", href: "/social/mentors", icon: "👑" },
+    //     ],
+    // },
+    // {
+    //     category: "Cognitive AI Engine",
+    //     items: [
+    //         { name: "Edge Diagnostics", href: "/ai/diagnostics", icon: "🤖" },
+    //         { name: "Behavioral Audit", href: "/ai/behavior", icon: "🧠" },
+    //     ],
+    // },
+    // {
+    //     category: "Management",
+    //     items: [
+    //         { name: "Settings & API", href: "/settings", icon: "⚙️" },
+    //     ],
+    // },
 ];
 
 export default function Sidebar() {
