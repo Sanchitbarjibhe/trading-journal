@@ -2,11 +2,12 @@
 "use client";
 
 import { useEffect } from "react";
-// Import useRouter from next/navigation, NOT next/router
-import { useRouter } from "next/navigation";
+import { useRouter, redirect } from "next/navigation";
 
 export default function RootPage() {
   const router = useRouter();
+
+  // redirect("/");
 
   useEffect(() => {
     // Automatically redirecting the user to the login route on initial mount

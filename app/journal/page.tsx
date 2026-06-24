@@ -4,7 +4,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TradeCard } from "@/components/TradeCard";
-import { deleteTradeSuccess, setTradeFilter } from "@/store/tradesSlice";
+import { deleteTradeSuccess, setTradeFilter, Trade } from "@/store/tradesSlice";
+import { TradeDetailsModal } from "@/components/TradeDetailsModal";
+
 
 export default function JournalPage() {
     const dispatch = useDispatch();
@@ -37,6 +39,17 @@ export default function JournalPage() {
         return matchesFilter && matchesSearch;
     });
 
+    function deleteTradeFromServer(id: string): any {
+        throw new Error("Function not implemented.");
+    }
+
+    const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleCardClick = (trade: any) => {
+        setSelectedTrade(trade);
+        setIsModalOpen(true);
+    };
     return (
         <div className="space-y-10 animate-in fade-in duration-500 max-w-375 mx-auto select-none">
 
@@ -135,18 +148,44 @@ export default function JournalPage() {
                     </div>
                 ) : (
                     /* Rendered Grid Arrays */
-                    <div className="flex flex-col gap-4">
+                    < div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 mt-6 w-full justify-center justify-items-center">
                         {filteredTrades.map((trade: any) => (
                             <TradeCard
                                 key={trade.id}
                                 trade={trade}
-                                onDelete={(id) => dispatch(deleteTradeSuccess(id))}
+                                onDelete={(id) => dispatch(deleteTradeFromServer(id))}
                             />
                         ))}
                     </div>
                 )}
-            </div>
 
-        </div>
+                <div className="p-6">
+
+                    {/* २. ग्रिड लेआउट (आधीचा कोड, फक्त आपण onClick इव्हेंट पास केलाय) */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 mt-6 w-full justify-center justify-items-center">
+                        {filteredTrades.map((trade: Trade) => (
+                            <div key={trade.id} onClick={() => handleCardClick(trade)} className="cursor-pointer w-full">
+                                <TradeCard
+                                    trade={trade}
+                                    onDelete={(id) => {
+                                        // डिलीट करताना पॉपअप उघडू नये म्हणून stopPropagation
+                                        event?.stopPropagation();
+                                        dispatch(deleteTradeFromServer(id));
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* ३. पॉपअप कंपोनंट इथे खाली रेंडर कर */}
+                    <TradeDetailsModal
+                        trade={selectedTrade}
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                    />
+
+                </div>
+            </div>
+        </div >
     );
 }
