@@ -1,23 +1,32 @@
+// prisma/schema.prisma मध्ये हे मॉडेल असायला हवे:
+model Waitlist {
+  id        String @id @default (uuid())
+  email     String @unique
+  createdAt DateTime @default (now())
+}
+
+
+
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url = env("DATABASE_URL")
 }
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 model Trade {
-  id          String   @id @default(uuid())
+  id          String @id @default (uuid())
   asset       String
-  type        String
+    type String
   entryPrice  Float
   exitPrice   Float
   pnl         Float
   status      String
   timestamp   String
-  description String?
-  riskReward  String?
-  emotion     String?
-  createdAt   DateTime @default(now())
+  description String ?
+        riskReward  String ?
+            emotion     String ?
+                createdAt   DateTime @default (now())
 }

@@ -44,7 +44,7 @@ export function TradeCard({ trade, onDelete }: TradeCardProps) {
 
     return (
         /* 🧠 बदल: इथेbg-white dark:bg-slate-900 आणि border-slate-200 dark:border-slate-800 वापरून दोन्ही थीम्स सेट केल्या आहेत */
-        <div className="group w-full max-w-[320px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-slate-700 flex flex-col h-[380px] select-none text-slate-800 dark:text-slate-100">
+        <div className="group w-full max-w-[320px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-slate-700 flex flex-col h-95 select-none text-slate-800 dark:text-slate-100">
 
             {/* ─── BLOCK 1: UPPER TRADINGVIEW CHART PREVIEW ─── */}
             {/* लाईट मोडमध्ये फिकट राखाडी (#f8f9fa) आणि डार्क मोडमध्ये ट्रेडिंगव्ह्यू ब्लॅक (#0c0d14) */}
@@ -54,7 +54,7 @@ export function TradeCard({ trade, onDelete }: TradeCardProps) {
                 <div className={`absolute top-0 left-0 w-1 h-full ${isWin ? "bg-emerald-500 shadow-[0_0_10px_#10b981]" : "bg-rose-500 shadow-[0_0_10px_#f43f5e]"}`} />
 
                 {/* रिस्पॉन्सिव्ह ग्रीड लाईन्स */}
-                <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:12px_16px]" />
+                <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-size-[12px_16px]" />
 
                 {/* कॅन्डलस्टिक मिनी ग्राफिक्स */}
                 <div className="absolute inset-x-6 top-6 bottom-4 flex items-center justify-center opacity-25 dark:opacity-20 pointer-events-none">
@@ -83,12 +83,12 @@ export function TradeCard({ trade, onDelete }: TradeCardProps) {
 
                 {/* १. INSTRUMENT & TYPE LINE */}
                 <div className="flex items-center justify-between w-full border-b border-slate-200 dark:border-slate-800 pb-2">
-                    <h2 className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-mono uppercase truncate max-w-[160px]">
+                    <h2 className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-mono uppercase truncate max-w-40">
                         {trade.asset}
                     </h2>
                     <span className={`text-[9px] font-mono font-black px-2.5 py-0.5 rounded border tracking-widest ${trade.type === "LONG"
-                            ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
-                            : "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20"
+                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
+                        : "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20"
                         }`}>
                         {trade.type}
                     </span>
