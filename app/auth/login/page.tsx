@@ -6,16 +6,17 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, setAuthLoading } from "@/store/authSlice";
-import { RootState } from "@/store";
+// import { RootState } from "@/store";
 
 export default function LoginPage() {
     const router = useRouter();
     const dispatch = useDispatch();
-    const { loading } = useSelector((state: RootState) => state.auth);
+    const { loading } = useSelector((state: any) => state.auth);
 
     const [credentials, setCredentials] = useState({
         email: "",
         password: "",
+        name: '',
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -26,8 +27,13 @@ export default function LoginPage() {
         setTimeout(() => {
             dispatch(
                 loginSuccess({
-                    name: "Sanchit Barjibhe",
-                    email: credentials.email,
+                    user: {
+                        name: "Sanchit Barjibhe",
+                        email: credentials.email,
+                        id: "",
+                        tier: "FREE"
+                    },
+                    token: "demo-token",
                 })
             );
             // Redirecting user seamlessly to the trading dashboard
