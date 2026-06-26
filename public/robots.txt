@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sweepx.vercel.app
+
+# Sitemaps
+Sitemap: https://sweepx.vercel.app/sitemap.xml

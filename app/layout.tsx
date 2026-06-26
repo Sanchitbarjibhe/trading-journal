@@ -5,6 +5,7 @@ import { StoreProvider } from "@/store/StoreProvider";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 
 export const metadata = {
+  metadataBase: new URL('https://sweepx.vercel.app'),
   title: "SweepX | Advanced Trading Psychology Tracker & Analytics",
   description: "Stop overtrading and fix your emotional matrix. SweepX maps psychological parameters like FOMO and greed alongside market data to help you trade with discipline.",
   keywords: ["Trading psychology tracker", "Trading journal app", "Stop overtrading", "Nifty trading analytics", "Forex trading", "Crypto trading", "trading psychology", "XAUUSD trading", "currency trading", "day trader", "trade analyzer", "Risk management tool"],
