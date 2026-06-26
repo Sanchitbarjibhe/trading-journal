@@ -5,10 +5,12 @@ import { StoreProvider } from "@/store/StoreProvider";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 
 export const metadata = {
-  title: "SweepX | Advanced Trading Psychology Analytics",
-  description: "Stop overtrading and fix your emotional matrix. SweepX maps psychological parameters like FOMO and greed alongside market data.",
+  title: "SweepX | Advanced Trading Psychology Tracker & Analytics",
+  description: "Stop overtrading and fix your emotional matrix. SweepX maps psychological parameters like FOMO and greed alongside market data to help you trade with discipline.",
+  keywords: ["Trading psychology tracker", "Trading journal app", "Stop overtrading", "Nifty trading analytics", "Forex trading", "Crypto trading", "trading psychology", "XAUUSD trading", "currency trading", "day trader", "trade analyzer", "Risk management tool"],
+
   openGraph: {
-    title: "SweepX | Deconstruct Your Trading Psychology",
+    title: "SweepX | Advanced Trading Psychology Tracker & Analytics",
     description: "Isolate execution anomalies, track slippage, and analyze hesitation metrics in real-time.",
     url: "https://sweepx.vercel.app",
     siteName: "SweepX",
