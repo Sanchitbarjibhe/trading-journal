@@ -10,7 +10,6 @@ export default function RootPage() {
   const router = useRouter();
   // redirect("/login");
   useEffect(() => {
-    debugger;
     router.push("auth/login");
   }, [router]);
   // return <MarketingPageUI />;
