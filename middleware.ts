@@ -3,26 +3,24 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
+    // Retrieve authentication token from cookies
+    const token = request.cookies.get('token')?.value;
     const { pathname } = request.nextUrl;
 
-    // १. सर्व API रूट्स (बॅकएंड डेटा सबमिशन) पूर्णपणे चालू ठेवा, जेणेकरून फॉर्म एरर देणार नाही
-    if (pathname.startsWith('/api/')) {
-        return NextResponse.next();
+    // Redirect to dashboard if authenticated user tries to access marketing or auth pages
+    if (token && (pathname === '/' || pathname.startsWith('/auth'))) {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
-    // २. लँडिंग पेज, नेक्स्टच्या इंटरनल फाईल्स आणि सर्व इमेजेस/आयॉन्सना परवानगी द्या
-    if (
-        pathname === '/' ||
-        pathname.startsWith('/_next') ||
-        pathname.includes('.')
-    ) {
-        return NextResponse.next();
+    // Redirect to login if unauthenticated user tries to access dashboard routes
+    if (!token && pathname.startsWith('/dashboard')) {
+        return NextResponse.redirect(new URL('/auth/login', request.url));
     }
 
-    // ३. वरील गोष्टी सोडल्यास बाकी सर्व पेजेस (dashboard, journal, auth) थेट ब्लॉक करून लँडिंगवर पाठवा
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.next();
 }
 
+// Configure routes where this middleware should execute
 export const config = {
-    matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+    matcher: ['/', '/dashboard/:path*', '/auth/:path*'],
 };
