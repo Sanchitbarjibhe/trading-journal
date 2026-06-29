@@ -18,22 +18,22 @@ export default function LoginPage() {
         password: "",
     });
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //     e.preventDefault();
-    //     dispatch(setAuthLoading(true));
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        dispatch(setAuthLoading(true));
 
-    //     // Simulating API Authentication latency for MVP
-    //     setTimeout(() => {
-    //         dispatch(
-    //             loginSuccess({
-    //                 name: "Sanchit Barjibhe",
-    //                 email: credentials.email,
-    //             })
-    //         );
-    //         // Redirecting user seamlessly to the trading dashboard
-    //         router.push("/dashboard");
-    //     }, 1200);
-    // };
+        // Simulating API Authentication latency for MVP
+        setTimeout(() => {
+            dispatch(
+                loginSuccess({
+                    name: "Sanchit Barjibhe",
+                    email: credentials.email,
+                })
+            );
+            // Redirecting user seamlessly to the trading dashboard
+            router.push("/dashboard");
+        }, 1200);
+    };
 
     return (
         <div className="min-h-screen bg-app-bg text-app-text flex font-sans selection:bg-app-card/50">
@@ -135,7 +135,7 @@ export default function LoginPage() {
                         </p>
                     </div>
 
-                    <form className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
                             <label className="block text-xs font-semibold uppercase tracking-wider text-app-muted mb-2">
                                 Email Address
