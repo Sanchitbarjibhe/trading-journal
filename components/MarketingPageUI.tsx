@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 
 export default function MarketingPageUI() {
 
@@ -52,21 +53,7 @@ export default function MarketingPageUI() {
             <div className="absolute bottom-10 right-1/4 w-100 h-100 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
 
             {/* ─── 1. PREMIUM HEADER ─── */}
-            <header className="max-w-7xl w-full mx-auto px-6 py-6 flex justify-between items-center relative z-10">
-                <div className="flex items-center gap-2.5">
-                    {/* Geometric SVG Logo */}
-                    <svg className="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 3v18h18" />
-                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" />
-                    </svg>
-                    <span className="text-lg font-bold tracking-wider font-mono text-white">
-                        SweepX
-                    </span>
-                </div>
-                <div className="text-xs text-slate-500 font-mono">
-                    v1.0.0-beta
-                </div>
-            </header>
+            <Navbar />
 
             {/* ─── 2. HERO CHAMBER (THE HOOK) ─── */}
             <main className="max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center pt-20 pb-16 relative z-10 my-auto">

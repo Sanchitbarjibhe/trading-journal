@@ -25,7 +25,9 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
         pathname === "/" ||
         pathname === "/login" ||
         pathname === "/signup" ||
-        pathname?.startsWith("/auth");
+        pathname?.startsWith("/auth") ||
+        pathname === "/blog" ||                 // Exact blog page sathi
+        pathname?.startsWith("/blog/");
     1
     // Shell 1: Plain viewport for Auth/Landing Pages
     if (isAuthRoute) {
