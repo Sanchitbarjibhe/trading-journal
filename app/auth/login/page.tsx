@@ -23,7 +23,6 @@ export default function LoginPage() {
     //     e.preventDefault();
     //     dispatch(setAuthLoading(true));
 
-<<<<<<< HEAD
     //     // Simulating API Authentication latency for MVP
     //     setTimeout(() => {
     //         dispatch(
@@ -36,25 +35,6 @@ export default function LoginPage() {
     //         router.push("/dashboard");
     //     }, 1200);
     // };
-=======
-        // Simulating API Authentication latency for MVP
-        setTimeout(() => {
-            dispatch(
-                loginSuccess({
-                    user: {
-                        name: "Sanchit Barjibhe",
-                        email: credentials.email,
-                        id: "",
-                        tier: "FREE"
-                    },
-                    token: "demo-token",
-                })
-            );
-            // Redirecting user seamlessly to the trading dashboard
-            router.push("/dashboard");
-        }, 1200);
-    };
->>>>>>> Dev_Branch
 
     return (
         <div className="min-h-screen bg-app-bg text-app-text flex font-sans selection:bg-app-card/50">
