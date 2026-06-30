@@ -1,4 +1,7 @@
 // app/layout.tsx
+"use client";
+
+
 import "@/app/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { StoreProvider } from "@/store/StoreProvider";

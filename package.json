@@ -4,7 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+<<<<<<< HEAD
     "build": "next build && next-sitemap",
+=======
+<<<<<<< Updated upstream
+    "build": "next build",
+=======
+    "deploy": "vercel --prod",
+    "build": "next build && next-sitemap",
+>>>>>>> Stashed changes
+>>>>>>> Dev_Branch
     "start": "next start",
     "lint": "eslint"
   },

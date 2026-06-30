@@ -1,12 +1,19 @@
 // app/page.tsx
 "use client";
 
+<<<<<<< HEAD
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+=======
+import { useEffect } from "react";
+import { redirect, useRouter } from "next/navigation";
+>>>>>>> Dev_Branch
 import MarketingPageUI from "@/components/MarketingPageUI";
 
+debugger;
 export default function RootPage() {
   const router = useRouter();
+<<<<<<< HEAD
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -32,4 +39,16 @@ export default function RootPage() {
 
   // Render marketing page if user is not logged in
   return <MarketingPageUI />;
+=======
+  // redirect("/login");
+  useEffect(() => {
+    router.push("auth/login");
+  }, [router]);
+  // return <MarketingPageUI />;
+  return (
+    <div className="min-h-screen bg-app-bg flex items-center justify-center text-app-muted font-mono text-xs">
+      Redirecting to Tradox Auth Architecture...
+    </div>
+  );
+>>>>>>> Dev_Branch
 }
