@@ -5,23 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next-sitemap",
-=======
-    "build": "next build",
->>>>>>> Dev_Branch
     "start": "next start",
-    "lint": "eslint"
-<<<<<<< HEAD
-    "build": "next build && next-sitemap",
-=======
-<<<<<<< Updated upstream
-    "build": "next build",
-=======
-    "deploy": "vercel --prod",
-    "build": "next build && next-sitemap",
->>>>>>> Stashed changes
->>>>>>> Dev_Branch
-    "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
