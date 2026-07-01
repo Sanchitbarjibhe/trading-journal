@@ -1,15 +1,18 @@
 // prisma/schema.prisma
 
 datasource db {
-  provider = "postgresql" // किंवा तू जो डेटाबेस वापरत असशील तो (mysql/sqlite)
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
+enum Role {
+  USER
+  ADMIN
+  PREMIUM_USER
+}
 
-// १. युझर मॉडेल (Authentication साठी)
 model User {
   id        String   @id @default(uuid())
   name      String
@@ -17,21 +20,22 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  trades    Trade[]  // युझरचे सर्व ट्रेड्स ट्रॅक करण्यासाठी रिलेशनशिप
+  active    Boolean  @default(true)
+  role      Role     @default(USER)
+  trades    Trade[] 
 }
 
-// २. ट्रेड्स मॉडेल (तुझा सायकोलॉजिकल आणि टेक्निकल डेटा)
 model Trade {
   id              String   @id @default(uuid())
   userId          String
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  pair            String   // उदा. XAUUSD, BTC, NIFTY
+  pair            String 
   type            String   // BUY / SELL
   entryPrice      Float
   exitPrice       Float
   quantity        Int
   pnl             Float    // Profit or Loss amount
-  emotion         String   // FOMO, Greed, Disciplined, Revenge (तुझा सायकॉलॉजीचा गाभा!)
-  notes           String?  // ट्रेडचे वैयक्तिक नोट्स
+  emotion         String   // FOMO, Greed, Disciplined, Revenge
+  notes           String?
   createdAt       DateTime @default(now())
 }
